@@ -27,38 +27,39 @@ def get_all():
   """
   all_args = request.args
   todos = TodoModel.get_all_todos(all_args)
-  data = todo_schema.dump(todos, many=True).data
-  return custom_response(data, 200)
+  # data = todo_schema.dump(todos, many=True).data
+  print('-------TODOS\n', todos[0].name)
+  return custom_response(todos[0].name, 200)
 
 @todo_api.route('/<int:todo_id>', methods=['GET'])
 def get_one(todo_id):
   """
   Get A Todo
   """
-  post = TodoModel.get_one_todo(todo_id)
-  if not post:
-    return custom_response({'error': 'post not found'}, 404)
-  data = todo_schema.dump(post).data
-  return custom_response(data, 200)
+  # post = TodoModel.get_one_todo(todo_id)
+  # if not post:
+  #   return custom_response({'error': 'post not found'}, 404)
+  # data = todo_schema.dump(post).data
+  return custom_response("get one", 200)
 
 @todo_api.route('/<int:todo_id>', methods=['PUT'])
 def update(todo_id):
   """
   Update A Todo
   """
-  req_data = request.get_json()
-  post = TodoModel.get_one_todo(todo_id)
-  if not post:
-    return custom_response({'error': 'post not found'}, 404)
-  data = todo_schema.dump(post).data
+  # req_data = request.get_json()
+  # post = TodoModel.get_one_todo(todo_id)
+  # if not post:
+  #   return custom_response({'error': 'post not found'}, 404)
+  # data = todo_schema.dump(post).data
 
-  data, error = todo_schema.load(req_data, partial=True)
-  if error:
-    return custom_response(error, 400)
-  post.update(data)
+  # data, error = todo_schema.load(req_data, partial=True)
+  # if error:
+  #   return custom_response(error, 400)
+  # post.update(data)
   
-  data = todo_schema.dump(post).data
-  return custom_response(data, 200)
+  # data = todo_schema.dump(post).data
+  return custom_response("update todo", 200)
 
 @todo_api.route('/<int:todo_id>', methods=['DELETE'])
 def delete(todo_id):
