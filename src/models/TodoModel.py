@@ -60,12 +60,9 @@ class TodoSchema(Schema):
   """
   Todo Schema
   """
-  # id = fields.Int(dump_only=True)
-  # title = fields.Str(required=True)
-  # contents = fields.Str(required=True)
+  
   name = fields.Str(dump_only=True)
   cardset = fields.Str(required=True)
   color = fields.Str(required=True)
-  # identity = fields.Str(required=True)
   created_at = fields.DateTime(dump_only=True)
   modified_at = fields.DateTime(dump_only=True)

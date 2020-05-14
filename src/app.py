@@ -7,6 +7,7 @@ from .models import db, bcrypt
 
 # import user_api blueprint
 from .controllers.TodoController import todo_api
+from .controllers.MTGController import mtg_api
 
 
 def create_app(env_name):
@@ -24,6 +25,7 @@ def create_app(env_name):
   db.init_app(app)
 
   app.register_blueprint(todo_api, url_prefix='/api/v1/todos')
+  app.register_blueprint(mtg_api, url_prefix='/api/v1/mtg/cards')
 
   @app.route('/', methods=['GET'])
   def index():
