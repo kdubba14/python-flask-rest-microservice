@@ -25,7 +25,9 @@ REST API written in Python Flask using SQLAlchemy as the ORM with auto migration
   # Change into the directory
   cd python-flask-rest-microservice
   # Install all required dependencies with
-  pipenv install --deploy --skip-lock
+  // skip // pipenv install --deploy --skip-lock
+  // skip // ('pip' or 'pip3') install psycopg2
+  pipenv install pylint --dev
   # Activate the project virtual environment
   pipenv shell
   # Create an local .env file and replace with the relevant values
@@ -34,7 +36,7 @@ REST API written in Python Flask using SQLAlchemy as the ORM with auto migration
   You can also set the enviroment variables explicity (OPTIONAL)
   
   ```bash
-  PORT=9000
+  PORT=9400
   BUILD_DEV=development
   DATABASE_URL=postgres://name:password@host:port/dbname
   ```
